@@ -35,15 +35,16 @@ a:hover {
   text-align: center;
   justify-content: center;
 }
-
 .pokemon{
+  text-align: center;
+  background: rgba(0,0,200, 0.7);
+  width: 60%;
+  margin: 5px auto;
+  border: 5px solid;
+  border-radius: 30px;
   min-width: 375px;
-  background-color: rgb(255, 255, 255);
   padding: 10px;
-  margin: 40px;
   box-sizing: border-box;
-  border: 15px inset;
-  border-radius: 100px;
   border-top-color: rgba(255, 0, 0, .5);
   border-left-color: rgba(255, 0, 0, .5);
   border-right-color: rgba(225, 225, 225, .5);

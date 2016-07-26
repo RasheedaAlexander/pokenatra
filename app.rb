@@ -8,46 +8,86 @@ require 'pry'
 require_relative 'db/connection'
 
 # Load models
-require_relative 'models/trainer'
+require_relative 'models/pokemon'
 require_relative 'models/pokemon'
 
 get '/' do
-  redirect 'trainers'
+  redirect 'pokemons'
 end
 
-get '/trainers' do
-  @trainers = Trainer.all
-  erb :"trainers/index"
+get '/pokemons' do
+  @pokemons = Pokemon.all
+  erb :"pokemons/index"
 end
 
-get '/trainers/new' do
-  erb :"trainers/new"
+get '/pokemons/new' do
+  erb :"pokemons/new"
 end
 
-get '/trainers/:id' do
-  @trainer = Trainer.find(params[:id])
-  erb :"trainers/show"
+get '/pokemons/:id' do
+  @pokemon = Pokemon.find(params[:id])
+  erb :"pokemons/show"
 end
 
-post '/trainers' do
-  @trainer = Trainer.create(params[:trainer])
-  redirect "/trainers/#{@trainer.id}"
+post '/pokemons' do
+  @pokemon = Pokemon.create(params[:pokemon])
+  redirect "/pokemons/#{@pokemon.id}"
 end
 
-get '/trainers/:id/edit' do
-  @trainer = Trainer.find(params[:id])
-  erb :"trainers/edit"
+get '/pokemons/:id/edit' do
+  @pokemon = Pokemon.find(params[:id])
+  erb :"pokemons/edit"
 end
 
-put '/trainers/:id' do
-  @trainer = Trainer.find(params[:id])
-  @trainer.update(params[:trainer])
-  redirect "/trainers/#{@trainer.id}"
+put '/pokemons/:id' do
+  @pokemon = Pokemon.find(params[:id])
+  @pokemon.update(params[:pokemon])
+  redirect "/pokemons/#{@pokemon.id}"
 end
 
 
-delete '/trainers/:id' do
-  @trainer = Trainer.find(params[:id])
-  @trainer.destroy
-  redirect '/trainers'
+delete '/pokemons/:id' do
+  @pokemon = Pokemon.find(params[:id])
+  @pokemon.destroy
+  redirect '/pokemons'
 end
+
+#Pokemon
+# *************************************************************
+
+# get '/pokemons' do
+#   @pokemon = Pokemon.all
+#   erb :"pokemons/index"
+# end
+#
+# get '/pokemon/new' do
+#   erb :"pokemons/new"
+# end
+#
+# get '/pokemon/:id' do
+#   @pokemon = Pokemon.find(params[:id])
+#   erb :"pokemons/show"
+# end
+
+# post '/pokemon' do
+#   @pokemon = Pokemon.create(params[:pokemon])
+#   redirect "/pokemons/#{@pokemon.id}"
+# end
+#
+# get '/pokemon/:id/edit' do
+#   @pokemon = Pokemon.find(params[:id])
+#   erb :"pokemons/edit"
+# end
+#
+# put '/pokemons/:id' do
+#   @pokemon = Pokemon.find(params[:id])
+#   @pokemon.update(params[:pokemon])
+#   redirect "/pokemon/#{@pokemon.id}"
+# end
+#
+#
+# delete '/pokemon/:id' do
+#   @pokemon = Pokemon.find(params[:id])
+#   @pokemon.destroy
+#   redirect '/pokemons'
+# end
