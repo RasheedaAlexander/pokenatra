@@ -27,7 +27,6 @@ end
 get '/pokemons/:id' do
   @pokemon = Pokemon.find(params[:id])
   @trainer = Trainer.find(params[:id])
-  # @trainer = Trainer.first
   erb :"pokemons/show"
 end
 
@@ -38,6 +37,7 @@ end
 
 get '/pokemons/:id/edit' do
   @pokemon = Pokemon.find(params[:id])
+  @trainer = Trainer.find(params[:id])
   erb :"pokemons/edit"
 end
 
@@ -56,5 +56,8 @@ end
 
 #Trainer
 # *************************************************************
-
-#
+get '/trainers/:id' do
+  @trainer = Trainer.find(params[:id])
+  @pokemon = Pokemon.find(params[:id])
+  erb :"trainers/show"
+end
