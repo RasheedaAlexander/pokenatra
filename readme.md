@@ -16,7 +16,11 @@ Build at least a single model application on the Sinatra Application that allows
 ```
 bundle install
 
-ruby s
+ruby app.rb
+```
+# Visit site on
+```
+http://localhost:4567/pokemons
 ```
 
 ![pokenatra_erd](pokenatra_erd.png)
